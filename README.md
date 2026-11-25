@@ -22,7 +22,7 @@ A reusable Agent Skill and image-production workflow for turning user-supplied m
 
 ### 角色造型设计图
 
-![噜噜概念设计图](assets/design/lulu_concept_sheet.png)
+![噜噜概念设计图](assets/design/lulu_concept_sheet.jpg)
 
 概念设计图仅用于快速浏览姿态和色彩；若细节与上述两张原始参考图不一致，**以原始参考图为准**。完整规范参见 [`references/CHARACTER_DNA.md`](references/CHARACTER_DNA.md)。
 
@@ -30,11 +30,11 @@ A reusable Agent Skill and image-production workflow for turning user-supplied m
 
 | 马噜 · 曹贼 | 袁公噜 · 告老还乡 | 邢道噜 · 自报家门 |
 |:---:|:---:|:---:|
-| <img src="assets/examples/ma_lu.png" width="260" alt="马噜表情包" /> | <img src="assets/examples/yuan_gong_lu.png" width="260" alt="袁公噜表情包" /> | <img src="assets/examples/xing_dao_lu.png" width="260" alt="邢道噜表情包" /> |
+| <img src="assets/examples/ma_lu.jpg" width="260" alt="马噜表情包" /> | <img src="assets/examples/yuan_gong_lu.jpg" width="260" alt="袁公噜表情包" /> | <img src="assets/examples/xing_dao_lu.jpg" width="260" alt="邢道噜表情包" /> |
 
 | 多人物三国海报 | 开心大笑的将军 | 捧出玉玺的武将 |
 |:---:|:---:|:---:|
-| <img src="assets/examples/three_kingdoms_poster.png" width="250" alt="噜噜三国海报" /> | <img src="assets/examples/laughing_general.png" width="250" alt="笑着的噜噜将军" /> | <img src="assets/examples/presenting_seal.png" width="250" alt="手捧玉玺的噜噜武将" /> |
+| <img src="assets/examples/three_kingdoms_poster.jpg" width="250" alt="噜噜三国海报" /> | <img src="assets/examples/laughing_general.jpg" width="250" alt="笑着的噜噜将军" /> | <img src="assets/examples/presenting_seal.jpg" width="250" alt="手捧玉玺的噜噜武将" /> |
 
 这些图片属于已生成的**改编示例**，展示角色替换后的效果；仓库没有把电视剧原截图直接打包为可复用素材，也没有承诺任何生成模型可以逐像素复现示例。
 
@@ -90,7 +90,7 @@ lulu-meme-maker/
 
 ### Source character references
 
-The two images in [`assets/references/`](assets/references/) are the **authoritative style anchors**. The [design overview](assets/design/lulu_concept_sheet.png) is supplementary, and should never override the original references.
+The two images in [`assets/references/`](assets/references/) are the **authoritative style anchors**. The [design overview](assets/design/lulu_concept_sheet.jpg) is supplementary, and should never override the original references.
 
 The core design DNA is a **large, round yellow head; one continuous orange lower-face color area without visible nostrils; small ears; clear black pupils with blue irises; a tiny tangerine ornament on top; and a squat body with extremely short arms and legs**. Keep costumes proportionate to the mascot body instead of placing the head on a realistic human body.
 

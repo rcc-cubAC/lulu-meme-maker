@@ -1,0 +1,20 @@
+{
+  "id": "lulu-meme-maker-v1",
+  "language": "zh-CN",
+  "type": "portable-instructional-workflow",
+  "description": "Create a standalone, text-clean 3D Lulu-style image from a user-supplied scene, then overlay exact subtitles.",
+  "inputs": ["scene_image", "character_target", "subtitle_exact", "head_direction", "gaze_direction", "action", "aspect_ratio"],
+  "reference_assets": ["assets/references/lulu_waving_closeup.jpg", "assets/references/lulu_arms_folded_fullbody.jpg"],
+  "steps": [
+    {"id": "analyze_scene", "action": "extract camera, posture, head direction, eye direction, lighting, costume, frame ratio"},
+    {"id": "lock_lulu_dna", "action": "enforce orange no-nose lower face, round large head, blue eyes, tiny ears, top orange, short arms and legs"},
+    {"id": "generate_clean_frame", "action": "use available image editing/generation ability; output one text-free image; preserve original scene's expressive beats"},
+    {"id": "visual_review", "action": "review references/QA_CHECKLIST.md; regenerate or locally edit if mismatch"},
+    {"id": "add_precise_subtitle", "action": "python scripts/add_subtitle.py --input CLEAN --output FINAL --text EXACT_SUBTITLE"},
+    {"id": "final_review", "action": "verify exact Chinese caption, visual similarity, eyes, short proportions, no overlays, one image per scene"}
+  ],
+  "image_generation_included": false,
+  "requires_external_image_capability": true,
+  "script_dependencies": ["Pillow", "system-installed CJK bold font"],
+  "outputs": ["final_png", "optional_editable_clean_render"]
+}

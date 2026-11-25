@@ -1,0 +1,17 @@
+# 本文件是填写示例，不依赖特定工作流编排器；请将值转述给生图助手。
+source_image: '上传的影视截图.png'
+character_original: '马超'
+character_lulu_name: '马噜'
+subtitle_exact: '曹贼'
+head_direction: '略微向左，保持原截图朝向'
+gaze_direction: '瞳孔斜视画面右前方，头不跟着转'
+pose: '坐在白马上，短小圆手指向前方'
+scene_and_costume: '明亮蓝天、军旗、银蓝盔甲、黑色长发、白马耳朵'
+aspect_ratio: 'keep-source'
+number_of_images: 1
+remove_overlays:
+  - watermark
+  - danmaku
+  - japanese_kana
+  - platform_ui
+subtitle_style: 'white-bold-black-outline-bottom-center'
