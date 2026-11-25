@@ -1,128 +1,169 @@
-# Lulu Meme Maker · 水豚噜噜影视表情包 Skill
+# Lulu Meme Maker — 水豚噜噜影视表情包 Skill / AI Character Meme Workflow
 
-**[简体中文](#简体中文) | [English](#english)**
+**[简体中文](#简体中文) · [English](#english) · [原图/转换图对照 Gallery](#before-after-gallery--原图与转换图对照) · [Skill](SKILL.md) · [Prompt templates](references/PROMPT_TEMPLATES.md)**
 
-A reusable Agent Skill and image-production workflow for turning user-supplied movie/TV frames into stylized **Lulu (噜噜)** character memes, with reliable Chinese subtitle rendering.
+**Lulu Meme Maker** is a reusable **Agent Skill / AI image-to-image meme workflow** for turning user-provided film and television screenshots into **水豚噜噜（Lulu）风格的 3D 表情包**. It documents character consistency, shot reconstruction, Chinese caption rendering, and human quality checks. **It does not include an image-generation model, image-generation API, or guaranteed one-click automation.**
 
-> **Project scope:** This repository provides instructions, visual references, example outputs, and a local subtitle-rendering utility. It does **not** include an image-generation model or an API service. The character references and illustrated examples are for demonstration; their inclusion in a public repository does not grant rights to reuse, modify, or commercialize underlying third-party imagery.
+> **Legal / 权利提示**：下面的“原图”来自用户提供的影视截图，只用于展示制作前后的视觉差异，图片版权和相关权利仍归原权利人。转换结果及角色参考图片也不授予任何默认再利用或商业授权。This is a public documentation gallery, not a freely licensed stock-image library.
 
 ## 简体中文
 
-### 简介
+### 这是什么？
 
-将用户提供的影视截图、三国名场面或人物海报转换为具有统一 **“水豚噜噜”** 特征的 3D 表情包。重点解决在多轮制作中容易出现的五种问题：大橙色脸部被替换成真实动物鼻子、手臂拉长、头部转向与眼神方向混淆、中文字幕错字，以及把原本应独立输出的多张图片拼成分镜。
+这是一个可在支持 **Agent Skills / SKILL.md** 的环境中复用的创作工作流，帮助将《三国》等影视截图、人物特写和海报改编为统一的“水豚噜噜”3D 表情包。主要解决 **角色特征漂移、真实水豚鼻孔、过长的手臂、错误的眼神方向、中文台词错字、多图被合成拼图** 等问题。
 
-### 原始外观参考（优先级最高）
+**适合搜索的任务**：影视截图转表情包、三国人物噜噜化、AI 角色替换、经典影视名场面二创、Q 版角色风格迁移、3D 萌系人物一致性、中文字幕白字黑描边、Agent Skill image editing、before-and-after meme transformations。
 
-| 叉手站立 · 大头短手 | 开心挥手 · 脸部形态 |
+### 一致性设计 / Lulu character DNA
+
+| 原始造型参考 · 叉手站立 | 原始造型参考 · 开心挥手 |
 |:---:|:---:|
-| <img src="assets/references/lulu_arms_folded_fullbody.jpg" width="290" alt="噜噜全身比例参考" /> | <img src="assets/references/lulu_waving_closeup.jpg" width="290" alt="噜噜面部与表情参考" /> |
+| <img src="assets/references/lulu_arms_folded_fullbody.jpg" width="315" alt="水豚噜噜原始造型参考，全身站立，大头矮身短手，橙色脸部" /> | <img src="assets/references/lulu_waving_closeup.jpg" width="315" alt="水豚噜噜原始造型参考，蓝黑圆眼、大面积橙色脸部、头顶小橘子" /> |
 
-> **设计要点**：大而圆的黄色脑袋、占据脸部下半区域的连续橙色色块、两只小尖耳、黑瞳蓝色虹膜、头顶小橘子、短手短腿与圆润身形。**避免真实水豚鼻孔、人形五官、毛茸茸熊脸、细长人体和多余的手指。**
+角色固定要素包括 **黄色大圆头、下半脸连续橙色色块、没有独立鼻头或鼻孔、略尖小耳、清晰的蓝色虹膜与黑瞳、头顶橘子、极短手臂与矮胖身形**。头部与目光可以独立变化，古装、盔甲和发饰必须适配噜噜体型。请以**原始参考图优先**；下图的 AI 概念设计仅用于辅助理解。
 
-### 角色造型设计图
+![水豚噜噜角色概念图：正面、侧面、不同动作和表情](assets/design/lulu_concept_sheet.jpg)
 
-![噜噜概念设计图](assets/design/lulu_concept_sheet.jpg)
+详细规范见 [角色特征](references/CHARACTER_DNA.md) 和 [制作检查表](references/QA_CHECKLIST.md)。
 
-概念设计图仅用于快速浏览姿态和色彩；若细节与上述两张原始参考图不一致，**以原始参考图为准**。完整规范参见 [`references/CHARACTER_DNA.md`](references/CHARACTER_DNA.md)。
+## Before-after gallery · 原图与转换图对照
 
-### 转换结果展示
+六组原图与转换成品均可直接打开，便于查看原始画面构图、演员动作、角色替换及台词呈现。**角色校正**：笑着的武将是 **公孙瓒（Gongsun Zan）**；手捧玉玺的武将是 **孙策（Sun Ce）**。示例人物仅为用户指定的改编对象，生成画面保留电影感与卡通审美。
 
-| 马噜 · 曹贼 | 袁公噜 · 告老还乡 | 邢道噜 · 自报家门 |
-|:---:|:---:|:---:|
-| <img src="assets/examples/ma_lu.jpg" width="260" alt="马噜表情包" /> | <img src="assets/examples/yuan_gong_lu.jpg" width="260" alt="袁公噜表情包" /> | <img src="assets/examples/xing_dao_lu.jpg" width="260" alt="邢道噜表情包" /> |
+#### 马超 → 马噜 · Ma Chao → Ma Lu
+**场景 / Scene:** 长发银甲、白马、举手指向前方，保持脸朝向与斜视目光的区别。 Silver armor, white horse and a raised pointing hand; head orientation and gaze direction are separate controls.  **字幕 / Caption:** `曹贼`
 
-| 多人物三国海报 | 开心大笑的将军 | 捧出玉玺的武将 |
-|:---:|:---:|:---:|
-| <img src="assets/examples/three_kingdoms_poster.jpg" width="250" alt="噜噜三国海报" /> | <img src="assets/examples/laughing_general.jpg" width="250" alt="笑着的噜噜将军" /> | <img src="assets/examples/presenting_seal.jpg" width="250" alt="手捧玉玺的噜噜武将" /> |
+| 原图 · Original frame | 噜噜转换 · Lulu result |
+|:---:|:---:|
+| <img src="assets/originals/ma_chao_original.jpg" width="420" alt="原始《三国》影视截图 Original Three Kingdoms scene: 马超 (Ma Chao)" /> | <img src="assets/examples/ma_lu.jpg" width="420" alt="噜噜改编图 Lulu-style transformation of Ma Chao: 马噜" /> |
 
-这些图片属于已生成的**改编示例**，展示角色替换后的效果；仓库没有把电视剧原截图直接打包为可复用素材，也没有承诺任何生成模型可以逐像素复现示例。
+#### 袁术 → 袁公噜 · Yuan Shu → Yuan Gong Lu
+**场景 / Scene:** 铠甲近景、酒红色围巾、无奈又不甘的侧目。 Armored close-up, burgundy scarf and a weary, skeptical sideways glance.  **字幕 / Caption:** `那就容我袁公噜告老还乡了`
 
-### 快速开始
+| 原图 · Original frame | 噜噜转换 · Lulu result |
+|:---:|:---:|
+| <img src="assets/originals/yuan_shu_original.jpg" width="420" alt="原始《三国》影视截图 Original Three Kingdoms scene: 袁术 (Yuan Shu)" /> | <img src="assets/examples/yuan_gong_lu.jpg" width="420" alt="噜噜改编图 Lulu-style transformation of Yuan Shu: 袁公噜" /> |
 
-1. 阅读 [`SKILL.md`](SKILL.md) 及 [`WORKFLOW.md`](WORKFLOW.md)，并使用上述原始形象参考图锁定噜噜的脸型和身形。
-2. 上传需要改编的场景截图，标注人物名字、原图动作与情绪、头部朝向、**独立的眼神方向**和准确台词。
-3. 使用有图片生成/编辑能力的工具制作**一张无字底图**；默认清理平台水印、弹幕和无关 UI；多张任务逐张导出。
-4. 在本地使用 Pillow 脚本叠加准确字幕，并按 [`references/QA_CHECKLIST.md`](references/QA_CHECKLIST.md) 核验。
+#### 邢道荣 → 邢道噜 · Xing Daorong → Xing Dao Lu
+**场景 / Scene:** 夸张张嘴喊话、深色铁盔甲和城墙背景，圆头短臂。 A loudly shouting pose, iron helmet and courtyard backdrop, with a large head and short arms.  **字幕 / Caption:** `我乃是零陵上将军邢道噜`
+
+| 原图 · Original frame | 噜噜转换 · Lulu result |
+|:---:|:---:|
+| <img src="assets/originals/xing_daorong_original.jpg" width="420" alt="原始《三国》影视截图 Original Three Kingdoms scene: 邢道荣 (Xing Daorong)" /> | <img src="assets/examples/xing_dao_lu.jpg" width="420" alt="噜噜改编图 Lulu-style transformation of Xing Daorong: 邢道噜" /> |
+
+#### 《三国》群像海报 → 噜噜版《三国》海报 · Three Kingdoms ensemble poster → Lulu Three Kingdoms poster
+**场景 / Scene:** 多角色海报、服饰差异、史诗群像、书法金字和战场背景。 A many-character ensemble, distinctive historical costumes, golden title and battlefield composition.  **字幕 / Caption:** `三国 / THREE KINGDOMS`
+
+| 原图 · Original frame | 噜噜转换 · Lulu result |
+|:---:|:---:|
+| <img src="assets/originals/three_kingdoms_poster_original.jpg" width="420" alt="原始《三国》影视截图 Original Three Kingdoms scene: 《三国》群像海报 (Three Kingdoms ensemble poster)" /> | <img src="assets/examples/three_kingdoms_poster.jpg" width="420" alt="噜噜改编图 Lulu-style transformation of Three Kingdoms ensemble poster: 噜噜版《三国》海报" /> |
+
+#### 公孙瓒 → 公孙瓒·噜噜版 · Gongsun Zan → Gongsun Zan as Lulu
+**场景 / Scene:** 公孙瓒大笑特写，头盔和银色雕花肩甲保留，眼睛眯起。 Gongsun Zan laughing in close-up with a decorated helmet and silver engraved shoulder armor.  **字幕 / Caption:** `吃什么 是啊 是啊`
+
+| 原图 · Original frame | 噜噜转换 · Lulu result |
+|:---:|:---:|
+| <img src="assets/originals/gongsun_zan_original.jpg" width="420" alt="原始《三国》影视截图 Original Three Kingdoms scene: 公孙瓒 (Gongsun Zan)" /> | <img src="assets/examples/gongsun_zan_lulu.jpg" width="420" alt="噜噜改编图 Lulu-style transformation of Gongsun Zan: 公孙瓒·噜噜版" /> |
+
+#### 孙策 → 孙策·噜噜版 · Sun Ce → Sun Ce as Lulu
+**场景 / Scene:** 孙策双手托起玉玺的场景，保留银盔、白色披风及惊喜神态。 Sun Ce presenting a jade imperial seal with both hands, helmet and pale cloak intact.  **字幕 / Caption:** `恭喜爹可以称帝了`
+
+| 原图 · Original frame | 噜噜转换 · Lulu result |
+|:---:|:---:|
+| <img src="assets/originals/sun_ce_original.jpg" width="420" alt="原始《三国》影视截图 Original Three Kingdoms scene: 孙策 (Sun Ce)" /> | <img src="assets/examples/sun_ce_lulu.jpg" width="420" alt="噜噜改编图 Lulu-style transformation of Sun Ce: 孙策·噜噜版" /> |
+
+
+图像示例体现的是创作流程的参考结果，无法保证不同生成模型在一次调用中产生一致画面。原图含有其原始字幕或平台标识，生成的无水印版本与精确字幕应按工作流另行处理。
+
+## 中文快速使用
+
+1. 阅读 [SKILL.md](SKILL.md)、[WORKFLOW.md](WORKFLOW.md) 和 [Prompt templates](references/PROMPT_TEMPLATES.md)，同时提供噜噜原始参考图及待替换截图。
+2. 说明对应角色、头部方向、眼神方向、表情动作、准确台词，要求生成**每个场景一张独立的无字底图**。
+3. 用本地 [字幕脚本](scripts/add_subtitle.py) 为底图加上准确的白色粗体、黑色描边中文字幕，再按检查表验收。
 
 ```bash
 python -m pip install -r requirements.txt
 python scripts/validate_skill.py
-python scripts/add_subtitle.py \
-  --input blank.png \
-  --output final.png \
-  --text '那就容我袁公噜告老还乡了'
+python scripts/add_subtitle.py --input blank.png --output finished.png --text '那就容我袁公噜告老还乡了'
 ```
 
-字幕样式采用 **白色粗体 + 黑色粗描边 + 底部居中**；需要系统安装支持中文的字体（优先 Noto Sans CJK Bold），**仓库不分发字体文件**。字幕脚本只叠加文字，不会生成图片，也不会擦除底图中已有的字幕。
+自然语言示例：**“参考原始水豚噜噜角色图，把《三国》截图中的马超替换为马噜，保持原来的镜头、铠甲和举手动作；头部微向左、目光斜视右前方；保留黄色圆头、大橙色脸部、短手和头顶橘子。请生成单张无文字图，后期加字幕『曹贼』。”**
 
-**提示词示例**："以我上传的截图作为镜头与情绪参考，以本仓库 `assets/references/` 两张图作为人物参考，将主角改成同一个水豚噜噜形象。保留动作和服饰，脸大身短、橙色脸部无鼻孔、蓝黑色眼睛、短手短脚、头顶小橘子。头向左微转，眼睛斜看右前方。单独出一张无字幕底图，不要水印或 UI；后期字幕写作『曹贼』。"
+### 中文常见问题（FAQ）
 
-### 文件结构
+**Q：这是能直接自动生成图片的模型吗？** A：目前是 `SKILL.md` 规范、提示词、参考图和 Python 字幕工具的组合，需要有图像生成/编辑能力的外部工具执行图像改编。
 
-```text
-lulu-meme-maker/
-├── README.md                 # 中文 / English
-├── SKILL.md                  # Agent Skill 核心指令
-├── QUICK_START.md            # 中文快速上手
-├── WORKFLOW.md               # 分阶段工作流
-├── references/               # 角色 DNA、提示词、字幕规范、质检
-├── assets/
-│   ├── references/           # 两张原始角色视觉参考
-│   ├── design/               # 概念设计展示
-│   └── examples/             # 生成结果样例
-├── scripts/                  # 字幕脚本、文件校验
-├── templates/                # 输入请求示例与工作流模板
-└── requirements.txt          # Pillow
-```
+**Q：怎么解决生成角色不像噜噜？** A：始终使用原始两张参考图锁定大橙色脸部、无鼻孔、短手和蓝黑色圆眼；用原截图只约束动作、服装与背景，不把人物的真实人脸复制到噜噜脸上。
 
-### 使用与版权说明
+**Q：如何保证“袁公噜”“邢道噜”字幕没有错字？** A：先生成无字幕底图，再用本项目的 Pillow 字幕脚本叠加用户提供的准确文本；字体需要本地安装，仓库不分发字体文件。
 
-本项目提供创作方法论和本地工具，**不包含图片生成引擎**。引用影视场景、第三方角色形象或任何带有商标/版权的素材时，请自行确认合理使用及公开传播所需权限。示例图片不能视为可自由商用的素材库。本仓库没有附带通用开源许可证。
+**Q：原图与改编图能用于商业项目吗？** A：本仓库不授予任何第三方角色、影视截图或图片的商业使用权限，请自行核对授权与适用法律。
 
 ---
 
 ## English
 
-### What is it?
+### What does Lulu Meme Maker do?
 
-**Lulu Meme Maker** is an Agent Skill–style workflow for converting user-supplied film or television stills, dramatic reaction shots, and character posters into consistent **Lulu (噜噜)**-inspired 3D character memes. It captures the original scene's composition and emotion while enforcing a recognizable character silhouette and accurate Chinese subtitles.
+**Lulu Meme Maker** is a publicly documented repository for a reusable **Agent Skill-style image transformation workflow**. It helps creators reinterpret user-supplied movie/TV stills, Chinese *Three Kingdoms* drama screenshots and classic reaction memes as consistent **Lulu (水豚噜噜) 3D cartoon memes**, while retaining framing, emotion, outfits and accurately typeset Chinese subtitles.
 
-### Source character references
+The workflow uses **reference-character images** to control appearance and **source scene screenshots** to control composition, and separates head pose from eye direction. Its **Python/Pillow subtitle utility** draws white bold Chinese captions with black outlines after image generation. Image editing/generation remains a separate step performed by a supported external creative tool.
 
-The two images in [`assets/references/`](assets/references/) are the **authoritative style anchors**. The [design overview](assets/design/lulu_concept_sheet.jpg) is supplementary, and should never override the original references.
+### Examples with original frames
 
-The core design DNA is a **large, round yellow head; one continuous orange lower-face color area without visible nostrils; small ears; clear black pupils with blue irises; a tiny tangerine ornament on top; and a squat body with extremely short arms and legs**. Keep costumes proportionate to the mascot body instead of placing the head on a realistic human body.
+The [before-and-after image gallery](#before-after-gallery--原图与转换图对照) documents six scene transformations with both images for each case:
 
-### Example outputs
+- **Ma Chao → Ma Lu (马超 → 马噜)**: armored horseback reaction with “曹贼”.
+- **Yuan Shu → Yuan Gong Lu (袁术 → 袁公噜)**: resigned warlord close-up with “那就容我袁公噜告老还乡了”.
+- **Xing Daorong → Xing Dao Lu (邢道荣 → 邢道噜)**: short-armed, shouting general with “我乃是零陵上将军邢道噜”.
+- **Three Kingdoms poster → Lulu ensemble**: multiple costumed characters, cinematic fantasy poster composition.
+- **Gongsun Zan (公孙瓒) → Lulu transformation**: the smiling armored general; subtitle “吃什么 是啊 是啊”.
+- **Sun Ce (孙策) → Lulu transformation**: presenting the imperial jade seal; subtitle “恭喜爹可以称帝了”.
 
-The example gallery above contains:
+### How to use
 
-- **Ma Lu**: a silver-armored warrior on horseback with a stern sideways gaze, captioned “曹贼”.
-- **Yuan Gong Lu**: a frustrated general in fitted armor, captioned “那就容我袁公噜告老还乡了”.
-- **Xing Dao Lu**: a shouty armored general, captioned “我乃是零陵上将军邢道噜”.
-- A multi-character *Three Kingdoms* poster, a laughing armored general, and a seal-presentation scene.
-
-These are **reference results**, not original source footage or guaranteed model outputs.
-
-### Workflow
-
-1. Start with [`SKILL.md`](SKILL.md), [`WORKFLOW.md`](WORKFLOW.md), and the two original character references.
-2. Analyze the input shot: framing, costume, acting, head orientation, **gaze direction as a separate constraint**, lighting, and exact replacement dialogue.
-3. Generate **one clean, text-free image per scene**. Remove unrelated UI, comments, watermarks, and pronunciation annotations from the recreation.
-4. Run the local subtitle renderer to add precise text, then use [`references/QA_CHECKLIST.md`](references/QA_CHECKLIST.md) for final review.
+1. Open [`SKILL.md`](SKILL.md) and the [visual identity reference](references/CHARACTER_DNA.md). Supply the Lulu reference images and the source shot.
+2. Describe the scene, character, costume, gaze, expression and exact caption; generate **one text-free image per scene** using an image-generation/editing tool.
+3. Add the specified Chinese text with [`scripts/add_subtitle.py`](scripts/add_subtitle.py) and check the [QA checklist](references/QA_CHECKLIST.md).
 
 ```bash
 python -m pip install -r requirements.txt
 python scripts/validate_skill.py
-python scripts/add_subtitle.py \
-  --input blank.png \
-  --output final.png \
-  --text '我乃是零陵上将军邢道噜'
+python scripts/add_subtitle.py --input blank.png --output finished.png --text '曹贼'
 ```
 
-Use a locally installed font capable of Chinese glyphs; **font binaries are not included**. The renderer adds white bold subtitles with thick dark outlines and centered bottom placement. It cannot generate or erase visual content.
+### Frequently asked questions
 
-### Limitations and rights
+**Is this a text-to-image model or hosted API?** No. The repository provides a prompt-driven Skill, documentation, character references, conversion examples and a local caption script; the image generator must be supplied separately.
 
-This is a collection of prompts, workflow files, reference assets, and a subtitle utility, **not an image-generation API**. You must supply an image-creation/editing tool separately. Respect the rights of source footage, character artwork, and other third-party materials. Public GitHub visibility does not mean the artwork is licensed for unrestricted reuse. No blanket open-source or commercial-use license is granted by this repository.
+**What visual characteristics define Lulu?** A large, smooth yellow head with a continuous orange lower-face patch, tiny ears, blue-and-black eyes, a small tangerine on top and very short limbs. Avoid photorealistic capybara snouts, nostrils, human facial anatomy and oversized human-style hands.
+
+**Does it work with Codex or ChatGPT?** The Skill document can be read in compatible Agent Skills environments or used as instructions alongside user-provided reference images in a conversation. Specific app integration and image-generation capabilities depend on the environment.
+
+**Can I reuse the included images?** The public repository displays them for documentation. No blanket content license is granted. Source TV frames and character artwork may require permissions from their respective rights holders.
+
+### Discoverability and citation
+
+Canonical project: **[github.com/rcc-cubAC/lulu-meme-maker](https://github.com/rcc-cubAC/lulu-meme-maker)**. When referring to the workflow, please use **“Lulu Meme Maker (水豚噜噜影视表情包 Skill)”** and link to this repository. Machine-readable example pairs are in [`data/examples.json`](data/examples.json). Additional navigation guidance is provided in [`llms.txt`](llms.txt) and [`docs/GEO.md`](docs/GEO.md); these documents improve clarity but do not guarantee indexing or AI recommendations.
+
+### Project layout
+
+```text
+README.md                     Bilingual project guide, examples, and FAQs
+SKILL.md                      Agent Skill instructions
+WORKFLOW.md                   Shot-to-meme workflow
+QUICK_START.md                Chinese quick start
+assets/originals/             User-supplied source frames (for comparison)
+assets/examples/              Generated Lulu meme results
+assets/references/            Lulu character design anchors
+assets/design/                Supplemental concept sheet
+references/                   Character DNA, prompts, QA, subtitle rules
+scripts/                      Pillow subtitle overlay and validation
+data/examples.json            Example-pair manifest (JSON)
+docs/GEO.md                   Search / answer engine discovery guidance
+llms.txt                      Plain-text project navigation
+```
+
+### Rights, limitations and attribution
+
+This public repository is **not a grant of rights to the source footage, character designs or derivative images**. Original screenshots are included in limited, resized form as user-provided contextual comparisons; if you own rights to material and need it removed, please open a repository issue with the affected file path. The repository has no blanket open-source license for third-party imagery. Automated image conversion, character identity preservation and text rendering require separate tools and quality review.

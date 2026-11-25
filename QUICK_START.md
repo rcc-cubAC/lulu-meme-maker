@@ -10,6 +10,20 @@
 - 袁公噜：肩甲贴合胖身，酒红围巾、火光古堡背景，微微不甘的眼神；台词 `那就容我袁公噜告老还乡了`。
 - 邢道噜：顶戴铆钉盔、短手小胖肚、张嘴喊话，背后刘字旗；台词 `我乃是零陵上将军邢道噜`。
 
+## 另外两组已确认角色
+
+- **公孙瓒（Gongsun Zan）**：笑着的武将，头盔、金属雕花肩甲与开心大笑表情，参照 `assets/originals/gongsun_zan_original.jpg` 和 `assets/examples/gongsun_zan_lulu.jpg`；台词 `吃什么 是啊 是啊`。
+- **孙策（Sun Ce）**：托起玉玺的武将，银盔、白色披风与双手捧出玉玺，参照 `assets/originals/sun_ce_original.jpg` 和 `assets/examples/sun_ce_lulu.jpg`；台词 `恭喜爹可以称帝了`。
+
+详细的六组原图—成品对照详见 [`README.md`](README.md) 与 [`data/examples.json`](data/examples.json)。
+
+## 另外两组已确认角色
+
+- **公孙瓒（Gongsun Zan）**：笑着的武将，参照 `assets/originals/gongsun_zan_original.jpg` 与 `assets/examples/gongsun_zan_lulu.jpg`；台词 `吃什么 是啊 是啊`。
+- **孙策（Sun Ce）**：双手托出玉玺的武将，参照 `assets/originals/sun_ce_original.jpg` 与 `assets/examples/sun_ce_lulu.jpg`；台词 `恭喜爹可以称帝了`。
+
+六组原图与成品对照见 [`README.md`](README.md) 和 [`data/examples.json`](data/examples.json)。
+
 ## 使用完整包
 
 本包是一个遵循 Agent Skills 约定的文件夹，包含 `SKILL.md`、参考图、成品示例、工作流与字幕辅助脚本。

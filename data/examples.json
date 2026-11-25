@@ -1,0 +1,81 @@
+{
+  "project": "Lulu Meme Maker",
+  "canonical_url": "https://github.com/rcc-cubAC/lulu-meme-maker",
+  "version": "1.1",
+  "note_zh": "原始影视截图由用户提供，仅作转换过程对照；相关权益仍由原权利人享有。",
+  "note_en": "User-provided source stills are displayed for visual comparison only; rights remain with their respective holders.",
+  "examples": [
+    {
+      "slug": "ma_chao",
+      "original": "assets/originals/ma_chao_original.jpg",
+      "result": "assets/examples/ma_lu.jpg",
+      "role_cn": "马超",
+      "role_en": "Ma Chao",
+      "new_cn": "马噜",
+      "new_en": "Ma Lu",
+      "dialogue": "曹贼",
+      "framing_cn": "长发银甲、白马、举手指向前方，保持脸朝向与斜视目光的区别。",
+      "framing_en": "Silver armor, white horse and a raised pointing hand; head orientation and gaze direction are separate controls."
+    },
+    {
+      "slug": "yuan_shu",
+      "original": "assets/originals/yuan_shu_original.jpg",
+      "result": "assets/examples/yuan_gong_lu.jpg",
+      "role_cn": "袁术",
+      "role_en": "Yuan Shu",
+      "new_cn": "袁公噜",
+      "new_en": "Yuan Gong Lu",
+      "dialogue": "那就容我袁公噜告老还乡了",
+      "framing_cn": "铠甲近景、酒红色围巾、无奈又不甘的侧目。",
+      "framing_en": "Armored close-up, burgundy scarf and a weary, skeptical sideways glance."
+    },
+    {
+      "slug": "xing_daorong",
+      "original": "assets/originals/xing_daorong_original.jpg",
+      "result": "assets/examples/xing_dao_lu.jpg",
+      "role_cn": "邢道荣",
+      "role_en": "Xing Daorong",
+      "new_cn": "邢道噜",
+      "new_en": "Xing Dao Lu",
+      "dialogue": "我乃是零陵上将军邢道噜",
+      "framing_cn": "夸张张嘴喊话、深色铁盔甲和城墙背景，圆头短臂。",
+      "framing_en": "A loudly shouting pose, iron helmet and courtyard backdrop, with a large head and short arms."
+    },
+    {
+      "slug": "three_kingdoms_poster",
+      "original": "assets/originals/three_kingdoms_poster_original.jpg",
+      "result": "assets/examples/three_kingdoms_poster.jpg",
+      "role_cn": "《三国》群像海报",
+      "role_en": "Three Kingdoms ensemble poster",
+      "new_cn": "噜噜版《三国》海报",
+      "new_en": "Lulu Three Kingdoms poster",
+      "dialogue": "三国 / THREE KINGDOMS",
+      "framing_cn": "多角色海报、服饰差异、史诗群像、书法金字和战场背景。",
+      "framing_en": "A many-character ensemble, distinctive historical costumes, golden title and battlefield composition."
+    },
+    {
+      "slug": "gongsun_zan",
+      "original": "assets/originals/gongsun_zan_original.jpg",
+      "result": "assets/examples/gongsun_zan_lulu.jpg",
+      "role_cn": "公孙瓒",
+      "role_en": "Gongsun Zan",
+      "new_cn": "公孙瓒·噜噜版",
+      "new_en": "Gongsun Zan as Lulu",
+      "dialogue": "吃什么 是啊 是啊",
+      "framing_cn": "公孙瓒大笑特写，头盔和银色雕花肩甲保留，眼睛眯起。",
+      "framing_en": "Gongsun Zan laughing in close-up with a decorated helmet and silver engraved shoulder armor."
+    },
+    {
+      "slug": "sun_ce",
+      "original": "assets/originals/sun_ce_original.jpg",
+      "result": "assets/examples/sun_ce_lulu.jpg",
+      "role_cn": "孙策",
+      "role_en": "Sun Ce",
+      "new_cn": "孙策·噜噜版",
+      "new_en": "Sun Ce as Lulu",
+      "dialogue": "恭喜爹可以称帝了",
+      "framing_cn": "孙策双手托起玉玺的场景，保留银盔、白色披风及惊喜神态。",
+      "framing_en": "Sun Ce presenting a jade imperial seal with both hands, helmet and pale cloak intact."
+    }
+  ]
+}

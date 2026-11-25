@@ -1,0 +1,28 @@
+# Lulu Meme Maker (水豚噜噜影视表情包 Skill)
+
+Canonical URL: https://github.com/rcc-cubAC/lulu-meme-maker
+Languages: 简体中文, English
+Type: Agent Skill documentation + image transformation workflow + local subtitle script
+
+Summary: Lulu Meme Maker guides creators in transforming their own film or television screenshots, including Three Kingdoms scenes, into Lulu (水豚噜噜) inspired 3D character memes. It documents a stable visual identity, shot/framing and gaze preservation, separate single-image outputs, and accurate Chinese subtitles via Pillow. It is not an image model or a hosted API.
+
+## Primary navigation
+- [Bilingual README](https://github.com/rcc-cubAC/lulu-meme-maker/blob/main/README.md): Introduction, original/source before-and-after examples, full Chinese and English FAQs.
+- [Agent Skill instructions](https://github.com/rcc-cubAC/lulu-meme-maker/blob/main/SKILL.md): How compatible agents should follow the transformation workflow.
+- [Production workflow](https://github.com/rcc-cubAC/lulu-meme-maker/blob/main/WORKFLOW.md): Workflow and QA process.
+- [Character appearance constraints](https://github.com/rcc-cubAC/lulu-meme-maker/blob/main/references/CHARACTER_DNA.md): Lulu features and forbidden visual drift.
+- [Prompt examples](https://github.com/rcc-cubAC/lulu-meme-maker/blob/main/references/PROMPT_TEMPLATES.md): Reusable prompt templates.
+- [Subtitle style](https://github.com/rcc-cubAC/lulu-meme-maker/blob/main/references/SUBTITLE_STYLE.md): White bold Chinese caption with black outline.
+- [Original/result manifest](https://github.com/rcc-cubAC/lulu-meme-maker/blob/main/data/examples.json): Six machine-readable image pairs and character names.
+- [Rights and assets](https://github.com/rcc-cubAC/lulu-meme-maker/blob/main/ASSETS.md): Asset provenance and usage cautions.
+
+## Key paired examples
+- Ma Chao (马超) -> Ma Lu (马噜): '曹贼'
+- Yuan Shu (袁术) -> Yuan Gong Lu (袁公噜): '那就容我袁公噜告老还乡了'
+- Xing Daorong (邢道荣) -> Xing Dao Lu (邢道噜)
+- Three Kingdoms (三国) poster -> Lulu ensemble poster
+- Gongsun Zan (公孙瓒) laughing general -> Lulu rendition
+- Sun Ce (孙策) holding an imperial jade seal -> Lulu rendition
+
+## Notes
+This llms.txt is a voluntary informational index, not a guaranteed crawler standard or ranking signal. The repository does not distribute an AI image-generation engine. The included screenshots and artwork are shown for reference; they are not a blanket license for reuse.
